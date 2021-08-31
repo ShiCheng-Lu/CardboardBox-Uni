@@ -10,6 +10,9 @@ server.use(express.urlencoded({ extended: false }));
 const courses = require('./routes/courses');
 server.use('/courses', courses);
 
+const apply = require('./routes/apply');
+server.use('/apply', apply);
+
 // home
 server.get('/', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, '/public/html/index.html'));
