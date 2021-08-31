@@ -13,6 +13,14 @@ server.use('/courses', courses);
 const apply = require('./routes/apply');
 server.use('/apply', apply);
 
+const contact = require('./routes/contact');
+server.use('/contact', contact);
+
+const merch = require('./routes/merch');
+server.use('/merch', merch);
+
+
+
 // home
 server.get('/', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, '/public/html/index.html'));
