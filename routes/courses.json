@@ -3,18 +3,18 @@
         "course_name": "Chess 101",
         "course_id": "CHE101",
         "course_url": null,
-        "course_desc": null
+        "course_desc": "learn chess with Michael Schiefer, not guranteed to actually teach you anything"
     },
     {
         "course_name": "Folding 101",
         "course_id": "FOLD101",
         "course_url": null,
-        "course_desc": null
+        "course_desc": "learn to fold cardboard boxes like a professional"
     },
     {
         "course_name": "Cutting 101",
         "course_id": "CUT101",
         "course_url": null,
-        "course_desc": null
+        "course_desc": "learn to cut cardboard boxes like a professional"
     }
 ]
