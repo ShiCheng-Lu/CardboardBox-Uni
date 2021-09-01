@@ -5,7 +5,7 @@ const server = express();
 
 server.use(express.static('./public'));
 server.use(express.json());
-server.use(express.urlencoded({ extended: false }));
+server.use(express.urlencoded());
 
 const courses = require('./routes/courses');
 server.use('/courses', courses);

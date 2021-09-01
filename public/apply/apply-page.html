@@ -16,11 +16,11 @@
   <meta property="og:description" content="">
   <meta property="og:image" content="">
 
-  <link rel="icon" href="/favicon.ico">
+  <!-- <link rel="icon" href="/favicon.ico">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
 
 </head>
 
@@ -33,19 +33,24 @@
     <a href="/merch">Merch</a>
   </div>
 
-  <form>
-    <label for="first-name">First name</label>
-    <input id="first-name">
-    <label for="middle-name">Middle name</label>
-    <input id="middle-name">
-    <label for="last-name">Last name</label>
-    <input id="last-name">
-    <label for="age">Age</label>
-    <input type="number" id="age">
+  <div id=form>
+    <form id="name-form" data-formNum=0>
+      <label for="firstName">First name</label>
+      <input id="firstName" name="firstName">
+      <label for="middleName">Middle name</label>
+      <input id="middleName" name="middleName">
+      <label for="lastName">Last name</label>
+      <input id="lastName" name="lastName">
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age">
 
-    <button type="submit">Submit Application</button>
-  </form>
+      <button type="button" id="submit-btn">Submit Application</button>
+    </form>
+  </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+    integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+    crossorigin="anonymous"></script>
   <script src="apply-page.js"></script>
 </body>
 
