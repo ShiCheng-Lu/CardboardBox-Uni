@@ -7,19 +7,10 @@ server.use(express.static('./public'));
 server.use(express.json());
 server.use(express.urlencoded());
 
-const courses = require('./routes/courses');
-server.use('/courses', courses);
-
-const apply = require('./routes/apply');
-server.use('/apply', apply);
-
-const contact = require('./routes/contact');
-server.use('/contact', contact);
-
-const merch = require('./routes/merch');
-server.use('/merch', merch);
-
-
+server.use('/courses', require('./routes/courses'));
+server.use('/contact', require('./routes/contact'));
+server.use('/apply', require('./routes/apply'));
+server.use('/merch', require('./routes/merch'));
 
 // home
 server.get('/', (req, res) => {

@@ -1,3 +1,12 @@
+const MongoClient = require('mongodb').MongoClient;
+const url = "mongodb+srv://admin:admin@cluster0.cpv39.mongodb.net/cbu?retryWrites=true&w=majority"
+
+var dbo;
+MongoClient.connect(url, (err, db) => {
+    if (err) throw err;
+    dbo = db.db('cbu');
+});
+
 const formNameHandler = (form, res) => {
     if (!form.firstName) {
         res = {
@@ -21,7 +30,7 @@ const formNameHandler = (form, res) => {
         }
         return;
     }
-    
+
 }
 
 
