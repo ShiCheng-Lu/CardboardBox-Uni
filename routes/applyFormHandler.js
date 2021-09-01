@@ -7,7 +7,9 @@ MongoClient.connect(url, (err, db) => {
     dbo = db.db('cbu');
 });
 
-const formNameHandler = (form, res) => {
+var applicant = new Object;
+
+const formNamesHandler = (form, res) => {
     if (!form.firstName) {
         res = {
             success: false,
@@ -30,13 +32,28 @@ const formNameHandler = (form, res) => {
         }
         return;
     }
+    applicant.firstName = form.firstName;
+    applicant.middleName = form.middleName;
+    applicant.lastName = form.lastName;
+    applicant.age = form.age;
 
+    res = {
+        success: true,
+        message: "success"
+    }
 }
 
+const formFinalHandler = (form, res) => {
+    applicant.chess = form.chess;
+    applicant.drug = (form.drug != undefined);
 
+    dbo.collection("applicants").insertOne(applicant);
+    applicant = new Object;
+    res = {
+        success: true,
+        message: "success"
+    }
+}
 
-
-
-
-
-module.exports.names = formNameHandler;
+module.exports.names = formNamesHandler;
+module.exports.final = formFinalHandler;

@@ -23,4 +23,8 @@ router.get('/all-courses', (req, res) => {
     });
 })
 
+router.get('/?', (req, res) => {
+    
+})
+
 module.exports = router;

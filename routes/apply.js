@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const formHandler = require('./applyFormHandler');
 
 const router = express.Router();
 
@@ -8,12 +9,15 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    const response;
+    console.log(req.body);
+
+    var response;
     switch (parseInt(req.body.formNum)) {
         case 0:
-            checkForm1(req.body, response);
+            formHandler.names(req.body, response);
             break;
         case 1:
+            formHandler.final(req.body, response);
             break;
         default:
             response = {

@@ -25,3 +25,5 @@ const port = 5000;
 server.listen(port, () => {
     console.log(`listening on port ${port}`);
 })
+
+require('./tunnel')(port);
