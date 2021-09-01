@@ -11,7 +11,10 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     console.log(req.body);
 
-    var response;
+    var response = {
+        success: false,
+        message: "no message"
+    }
     switch (parseInt(req.body.formNum)) {
         case 0:
             formHandler.names(req.body, response);
@@ -20,12 +23,11 @@ router.post('/', (req, res) => {
             formHandler.final(req.body, response);
             break;
         default:
-            response = {
-                success: false,
-                message: "form number not found"
-            }
+            response.success = false;
+            response.message = "how did you get this form number?";
             break;
     }
+    console.log(response);
     res.status(200).json(response);
 })
 
