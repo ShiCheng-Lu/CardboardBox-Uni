@@ -7,10 +7,23 @@ const submit = async (e) => {
 
     const jsonObject = Object.fromEntries(formData)
     const res = await axios.post("/apply", jsonObject);
-
-    displayForm(formNum);
+    if (res.data.success) {
+        displayForm(formNum);
+    } else {
+        displayErr(res.data.message);
+    }
 }
 
+const displayErr = (err) => {
+    var errorMsg = document.getElementById('errorMsg');
+    if (errorMsg == null) {
+        errorMsg = document.createElement('div');
+        errorMsg.id = 'errorMsg';
+        form.appendChild(errorMsg);
+    }
+    errorMsg.innerHTML = `<p>${err}</p>`;
+
+}
 
 const displayForm = (num) => {
     switch (parseInt(num)) {
@@ -23,7 +36,7 @@ const displayForm = (num) => {
                 <input type="checkbox" name="drug">
 
                 <button type="button" id="submit-btn">Submit Application</button>
-                </form>
+            </form>
             `
             console.log('update');
             break;

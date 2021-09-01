@@ -1,7 +1,7 @@
 const start = (port) => {
     const localtunnel = require('localtunnel');
 
-    const tunnel = localtunnel(port, { subdomain: 'cardboardboxuni' }, (err, tunnel) => {
+    const tunnel = localtunnel(port, { subdomain: 'cardboardbox' }, (err, tunnel) => {
         console.log(tunnel.url);
     });
 
@@ -14,6 +14,5 @@ const start = (port) => {
         tunnel.close();
     })
 }
-
 
 module.exports = start;

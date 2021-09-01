@@ -9,27 +9,24 @@ MongoClient.connect(url, (err, db) => {
 
 var applicant = new Object;
 
+const checkExists = (form, res, attr) => {
+    if (!form[attr]) {
+        res.success = false;
+        res.message = `missing ${attr}`;
+        return false;
+    }
+    return true;
+}
+
 const formNamesHandler = (form, res) => {
-    if (!form.firstName) {
-        res = {
-            success: false,
-            message: "missing first name"
-        }
-        return;
-    }
-    if (!form.lastName) {
-        res = {
-            success: false,
-            message: "missing last name"
-        }
-        return;
-    }
+    if (!checkExists(form, res, 'firstName')) return;
+    if (!checkExists(form, res, 'lastName')) return;
+    if (!checkExists(form, res, 'age')) return;
+
     var age = parseInt(form.age);
     if (age < 16) {
-        res = {
-            success: false,
-            message: "too young"
-        }
+        res.success = false;
+        res.message = "too young bucko";
         return;
     }
     applicant.firstName = form.firstName;
@@ -37,10 +34,8 @@ const formNamesHandler = (form, res) => {
     applicant.lastName = form.lastName;
     applicant.age = form.age;
 
-    res = {
-        success: true,
-        message: "success"
-    }
+    res.success = true;
+    console.log('success');
 }
 
 const formFinalHandler = (form, res) => {
@@ -49,10 +44,7 @@ const formFinalHandler = (form, res) => {
 
     dbo.collection("applicants").insertOne(applicant);
     applicant = new Object;
-    res = {
-        success: true,
-        message: "success"
-    }
+    res.success = true;
 }
 
 module.exports.names = formNamesHandler;
